@@ -12,7 +12,7 @@ day = now.day
 
 if int(input_time.split()[0]) < now.hour:
     day += 1
-elif int(input_time[0]) == now.hour and int(input_time[1]) < now.minute:
+elif int(input_time.split()[0]) == now.hour and int(input_time.split()[1]) < now.minute:
     day += 1
 
 print(day)
