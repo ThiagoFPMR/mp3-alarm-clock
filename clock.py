@@ -6,7 +6,15 @@ now = datetime.now()
 input_time = input(
     "Takes in time of waking up as hour and minute using 24H system.\n(You can separate them by a space or colon).\nWhen to wake up? ")
 input_time = input_time.replace(":", " ")
-time_str = f"{now.year} 0{now.month} {now.day} {input_time}"
+
+# Adjusting the day for tomorrow if the time given is earlier than the current time
+day = now.day
+if int(input_time[0]) < now.hour:
+    day += 1
+elif int(input_time[0]) == now.hour and int(input_time[1]) < now.minute:
+    day += 1
+
+time_str = f"{now.year} 0{now.month} {day} {input_time}"
 # Gets the time to play the alarm
 alarm_time = datetime.strptime(time_str, "%Y %m %d %H %M")
 # Set which ringtone will be used
