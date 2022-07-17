@@ -9,10 +9,13 @@ input_time = input_time.replace(":", " ")
 
 # Adjusting the day for tomorrow if the time given is earlier than the current time
 day = now.day
-if int(input_time[0]) < now.hour:
+
+if int(input_time.split()[0]) < now.hour:
     day += 1
 elif int(input_time[0]) == now.hour and int(input_time[1]) < now.minute:
     day += 1
+
+print(day)
 
 time_str = f"{now.year} 0{now.month} {day} {input_time}"
 # Gets the time to play the alarm
