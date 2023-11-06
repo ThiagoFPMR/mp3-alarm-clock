@@ -15,7 +15,7 @@ if int(input_time.split()[0]) < now.hour:
 elif int(input_time.split()[0]) == now.hour and int(input_time.split()[1]) < now.minute:
     day += 1
 
-time_str = f"{now.year} 0{now.month} {day} {input_time}"
+time_str = f"{now.year} {now.month} {day} {input_time}"
 # Gets the time to play the alarm
 alarm_time = datetime.strptime(time_str, "%Y %m %d %H %M")
 # Set which ringtone will be used
